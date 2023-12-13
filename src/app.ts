@@ -3,10 +3,8 @@ import express, { Application } from "express";
 // import helmet from "helmet";
 import cors from "cors";
 import * as middlewares from "./middlewares";
-import api from "./api";
-// import MessageResponse from "./interfaces/MessageResponse";
 import dbConnect from "./app/utils/dbConnect";
-import productRouter from "./app/modules/product/product.router";
+import api from "./api";
 
 require("dotenv").config();
 
@@ -28,7 +26,6 @@ app.get("/", (req, res) => {
 app.use("/api/v1", api);
 
 // products api
-app.use("/api/v1/products", productRouter);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);

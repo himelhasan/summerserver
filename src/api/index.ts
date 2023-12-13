@@ -1,15 +1,18 @@
 import express from "express";
-import MessageResponse from "../interfaces/MessageResponse";
 import emojis from "./emojis";
+import { AllProducts } from "../app/modules/product/product.controller";
+import productRouter from "../app/modules/product/product.router";
 
 const router = express.Router();
 
-router.get<{}, MessageResponse>("/", (req, res) => {
+router.get("/", (req, res) => {
   res.json({
-    message: "API - 👋🌎🌍🌏",
+    data: AllProducts,
   });
 });
 
 router.use("/emojis", emojis);
+
+router.use("/products", productRouter);
 
 export default router;
