@@ -5,6 +5,7 @@ import cors from "cors";
 import * as middlewares from "./middlewares";
 import dbConnect from "./app/utils/dbConnect";
 import api from "./api";
+import userRouter from "./app/modules/users/user.router";
 
 require("dotenv").config();
 
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1", api);
+app.use("/api/v1/users", userRouter);
 
 // products api
 
