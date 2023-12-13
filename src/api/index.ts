@@ -11,8 +11,8 @@ router.get("/", (req, res) => {
   });
 });
 
-router.use("/emojis", productRouter);
+router.use("/emojis", emojis);
 
-router.use("/products", emojis);
+router.use("/products", productRouter);
 
 export default router;
